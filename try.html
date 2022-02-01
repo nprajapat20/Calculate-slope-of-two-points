@@ -1,0 +1,142 @@
+<html>
+  <head>
+    <style>
+      .heading {
+        background-color: #be7b68;
+        height: 50px;
+        width: 700px;
+        border-radius: 10px;
+        position: relative;
+        top: 3px;
+        bottom: 50px;
+        left: 5%;
+      }
+      .ulla{
+        border-radius: 10px;
+        height: 60px;
+      }
+      .ulla:hover{
+        background-color: #070706
+       
+        width: 680px;
+        
+        box-shadow: 0 5px 5px 0 rgb(184, 179, 179),0 17px 50px 0 rgba(0,0,0,0.19);
+        top: 30px;}
+       
+      body {
+        background-color: tan;
+      }
+      .box {
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(184, 53, 53));
+
+        height: 400px;
+        width: 800px;
+        border-radius: 10px;
+        position: relative;
+        top: 40px;
+        left: 5%;
+      }
+      .button.gray {
+       
+        font-size: 20px;
+        color: white;
+        background-color: #6f6f6f;
+        border-bottom: black 3px solid;
+        border-top: 3px #6f6f6f solid;
+      }
+      #bu{
+        font-size: 20px;
+        color:rgb(194, 236, 255);  
+background-color:#dd823b;  
+border-bottom:black 2px solid;  
+border-top:2px FF9933 solid; 
+      }
+      
+      #Ans {
+        color: white
+        
+      }
+      
+.button:hover {
+  border-radius: 10px;
+  transition: all 0.1s ease-out;
+  box-shadow: 0 5px 5px 0 rgb(184, 179, 179),0 17px 50px 0 rgba(0,0,0,0.19);
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
+
+
+}
+@keyframes example {
+  0%   {background-color: #c36e3e;left:0px; top:0px;}
+  25%  {background-color: #4d3c3c;left:20px; top:0px}
+  50%  {background-color: #7d3428;left:20px; top:20px;}
+  100% {background-color:#ad625d;}
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="box">
+     <div class="ulla"> <div class="heading" style="font-size: 40px; color: white;text-align:center  ">
+        Slope of line passing through two points
+      </div></div>
+      <div  style="padding-top: 30px; color:red; font-size: 20px;">
+          &nbsp; &nbsp; &nbsp;Enter 1st point (x1,y1)
+        <input type="number" class="button gray" id="x1" />
+        <input class="button gray" type="number" id="y1" />
+      </div>
+      <div style=" padding: 10px;color: red;font-size: 20px;" >
+          &nbsp;  Enter 2nd point (x2,y2)
+        <input class="button gray" type="number" id="x2" />
+        <input class="button gray" type="number" id="y2" />
+      </div>
+      <div style=" padding: 10px;">
+        <button onclick="runClick()" class="button" id="bu">
+          Calculate Slope
+        </button>
+      </div>
+     <div id="Ans" style="font-size: 20px;text-align: center"> &nbsp;Answer </div>
+      <div
+        id="answer"
+        style="position:relative;  
+        left:2px;  
+        top:2px;  
+        height:35px;  
+        color:black;  
+        background-color:#bccd95;  
+        font-size:21px;  
+        text-align:right;"</div>
+    </div>
+  </body>
+  <script>
+    function calculateSlope(arr) {
+      x1 = arr[0];
+      y1 = arr[1];
+      x2 = arr[2];
+      y2 = arr[3];
+      if (x1 === x2) {
+        // line joining points is perpendicular to x-axis
+        var slope = 90;
+        return slope;
+      } else {
+        var slope = (y2 - y1) / (x2 - x1);
+        return slope;
+      }
+      // value of slope of line joining two points }
+    }
+
+    function runClick() {
+      let input1 = document.getElementById("x1").value;
+      let input2 = document.getElementById("y1").value;
+      let input3 = document.getElementById("x2").value;
+      let input4 = document.getElementById("y2").value;
+      let inputArray = [input1, input2, input3, input4];
+      let calculate = calculateSlope(inputArray);
+      document.getElementById("answer").innerHTML =
+        `<div style="color:black;"> <div style="font-size:35px">` +
+        calculate +
+        `</div></div>`;
+    }
+  </script>
+</html>
